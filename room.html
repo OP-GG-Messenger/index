@@ -10,7 +10,9 @@
             var room_id = location.search.replace(/^\?/, '');
             var password = location.hash.replace(/^#/, '');
             var link = 'peep://join/' + room_id + '#' + password;
-            alert(link);
+            if (confirm('open in peep '+ room_id + '?')) {
+                location.href = link;
+            }
         }
         function onLoad() {
             setTimeout(function() {
