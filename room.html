@@ -8,8 +8,7 @@
     <script>
         function openInPeep() {
             var room_id = location.search.replace(/^\?/, '');
-            var password = location.hash.replace(/^#/, '');
-            var link = 'peep://join/' + room_id + '#' + password;
+            var link = 'peep://join/' + room_id;
             if (confirm('open in peep '+ room_id + '?')) {
                 location.href = link;
             }
