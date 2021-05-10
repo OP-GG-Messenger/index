@@ -9,16 +9,20 @@
     <title>Join Peep</title>
 
     <script>
+        function confirmOpenInPeep() {
+            var room_id = location.search.replace(/^\?/, '');
+            if (confirm('open in peep '+ room_id + '?')) {
+                openInPeep()
+            }
+        }
         function openInPeep() {
             var room_id = location.search.replace(/^\?/, '');
             var link = 'peep://join/' + room_id;
-            if (confirm('open in peep '+ room_id + '?')) {
-                location.href = link;
-            }
+            location.href = link;
         }
         function onLoad() {
             setTimeout(function() {
-                openInPeep()
+                confirmOpenInPeep()
             }, 500);
         }
     </script>
@@ -47,7 +51,7 @@
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
+  <body onload="onLoad()" class="d-flex h-100 text-center text-white bg-dark">
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
