@@ -1,1 +1,11 @@
-<meta http-equiv="Refresh" content="0; url='https://hello.peep.lol'" />
+<noscript>
+  <meta http-equiv="Refresh" content="1; url='https://hello.peep.lol'" />
+</noscript>
+<script>
+  var language = window.navigator.userLanguage || window.navigator.language;
+  if (language.match(/ko|kr/)) {
+    location.replace('https://hello.peep.lol/kr')
+  } else {
+    location.replace('https://hello.peep.lol/')
+  }
+</script>
