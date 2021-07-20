@@ -1,22 +1,38 @@
 <html>
   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-      <title>PEEP - REQUEST EARLY ACCESS</title>
-      <style type="text/css"> 
-        html{ 
-          margin: 0; 
-          height: 100%; 
-          overflow: hidden; 
-        } 
-        iframe { 
-          position: absolute; 
-          left:0; 
-          right:0;
-          bottom:0; 
-          top:0; 
-          border: 0; 
-        } 
-      </style> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>PEEP - REQUEST EARLY ACCESS</title>
+    <meta http-equiv="Content-Security-Policy"
+      content="
+      default-src     'self' https://*.typeform.com;
+      script-src      'self' https://*.typeform.com;
+      style-src       'self' https://*.typeform.com;
+      img-src         'self' https://*.typeform.com;
+      font-src        'self' https://*.typeform.com;
+      connect-src     'self' https://*.typeform.com;
+      media-src       'self' https://*.typeform.com;
+      object-src      'self' https://*.typeform.com;
+      child-src       'self' https://*.typeform.com;
+      frame-src       'self' https://*.typeform.com;
+      worker-src      'self' https://*.typeform.com;
+      form-action     'self' https://*.typeform.com;
+      block-all-mixed-content;
+    ">
+    <style type="text/css"> 
+      html{ 
+        margin: 0; 
+        height: 100%; 
+        overflow: hidden; 
+      } 
+      iframe { 
+        position: absolute; 
+        left:0; 
+        right:0;
+        bottom:0; 
+        top:0; 
+        border: 0; 
+      } 
+    </style> 
     <script>
       var language = window.navigator.userLanguage || window.navigator.language;
       var src = "https://form.typeform.com/to/EU2xUqOm?typeform-medium=embed-snippet";
