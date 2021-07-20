@@ -1,0 +1,33 @@
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <title>PEEP - REQUEST EARLY ACCESS</title>
+      <style type="text/css"> 
+        html{ 
+          margin: 0; 
+          height: 100%; 
+          overflow: hidden; 
+        } 
+        iframe { 
+          position: absolute; 
+          left:0; 
+          right:0;
+          bottom:0; 
+          top:0; 
+          border: 0; 
+        } 
+      </style> 
+    <script>
+      var language = window.navigator.userLanguage || window.navigator.language;
+      var src = "https://form.typeform.com/to/EU2xUqOm?typeform-medium=embed-snippet";
+      if (language.match(/ko|kr/)) {
+        document.getElementsByTagName('title').innerHTML = 'PEEP - 얼리 억세스 신청';
+        src = "https://form.typeform.com/to/EU2xUqOm?typeform-medium=embed-snippet"
+      }
+      document.body.innerHTML = '<iframe id="typeform-full" width="100%" height="100%" frameborder="0" allow="camera; microphone; autoplay; encrypted-media;" src="'+src+'"></iframe>' + document.body.innerHTML;
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
+  </body>
+</html>
