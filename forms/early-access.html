@@ -20,6 +20,8 @@
     <script>
       var language = window.navigator.userLanguage || window.navigator.language;
       var src = "https://form.typeform.com/to/EU2xUqOm?typeform-medium=embed-snippet";
+      var lang = location.search.match(/lang=(\w+)/) || language.match(/(ko|kr)/);
+      console.log(lang);
       if (language.match(/ko|kr/)) {
         document.getElementsByTagName('title')[0].innerHTML = 'PEEP - 얼리 억세스 신청';
         src = "https://form.typeform.com/to/uqwvYPyg?typeform-medium=embed-snippet"
