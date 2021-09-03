@@ -75,6 +75,7 @@ body {
   font-size: 28px;
   color: #fff;
   line-height: 1.3;
+  margin: 0;
 }
 
 a.sub-text:hover {
@@ -155,12 +156,10 @@ a.sub-text:hover {
     margin-bottom: 80px;
   }
 
-  .img-click-here {
+  .img-click-here {    
     bottom: 50px;
   }
-}
 
-@media screen and (max-height: 800px) {
   .main-wrap {    
     margin-bottom: 100px;
   }
@@ -169,5 +168,67 @@ a.sub-text:hover {
 @media screen and (max-height: 690px) {
   .main-wrap {    
     margin-bottom: 60px;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .cover-container {    
+    padding: 0 30px;    
+  }
+}
+
+@media screen and (max-width: 720px) {
+  header {
+    height: 72px;
+  }
+  
+  .main-text {
+    font-size: 40px;
+  }
+  
+  .sub-text {
+    font-size: 24px;
+  }  
+}
+
+@media screen and (max-width: 680px) {
+  .img-click-here {
+    display: none;
+  }
+
+  .enter-btn {
+    width: 100%;
+    padding: 16px 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main-text {
+    font-size: 34px;
+  }
+  
+  .sub-text {
+    font-size: 16px;
+  }
+
+  .cover-container {    
+    padding: 0 10px;    
+  }
+
+  .sub-text-wrap {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .enter-btn {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .main-text {
+    font-size: 28px;
   }
 }
