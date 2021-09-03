@@ -12,8 +12,7 @@ body {
 }
 
 .cover-container {
-  max-width: 1136px;
-  min-width: 720px;
+  max-width: 1136px;  
   justify-content: center;
   padding: 0 30px;
 }
