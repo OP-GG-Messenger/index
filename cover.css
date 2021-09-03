@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;  
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 
 .logo {
@@ -154,8 +154,14 @@ a.sub-text:hover {
   }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 800px) {
   .main-wrap {    
-    margin-bottom: 0;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-height: 690px) {
+  .main-wrap {    
+    margin-bottom: 60px;
   }
 }
