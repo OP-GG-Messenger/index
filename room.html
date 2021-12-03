@@ -7,23 +7,47 @@
   <title>Join Peep</title>
 
   <script>
+    const API_ENDPOINT = 'http://13.125.190.27:90';
+
+    function getRoomId() {
+      return location.search.replace(/^\?/, '');
+    }
     function confirmOpenInPeep() {
-      var room_id = location.search.replace(/^\?/, '');
+      const room_id = getRoomId();
       if (confirm('Open in peep ' + room_id + '?')) {
         openInPeep()
       }
     }
 
     function openInPeep() {
-      var room_id = location.search.replace(/^\?/, '');
-      var link = 'peep://join/' + room_id;
+      const room_id = getRoomId();
+      const link = 'peep://join/' + room_id;
       location.href = link;
     }
 
-    function onLoad() {
-      setTimeout(function () {
-        confirmOpenInPeep()
-      }, 500);
+    async function onLoad() {
+      const room_id = getRoomId();
+
+      try {
+        const response = await fetch(`${API_ENDPOINT}/roomInfo/${room_id}`, {
+          headers: { 'Content-Type': 'application/json' },
+          method: 'GET',
+        });
+
+        const responseJson = await response.json();
+        document.getElementById("join-room").style.display = 'block';
+        document.getElementById("room-name").innerText = responseJson.roomInfo.name;
+        document.getElementById("user-count").innerText = responseJson.roomInfo.userCount;
+
+        document.getElementById("cover").style.display = 'flex';
+      } catch (e) {
+        document.getElementById("join-room").style.display = 'none';
+        document.getElementById("error").style.display = 'block';
+
+        document.getElementById("cover").style.display = 'flex';
+        console.log('Fetch error', e);
+        return null; // Failure
+      }
     }
   </script>
 
@@ -53,41 +77,34 @@
   <link href="cover.css" rel="stylesheet">
 </head>
 
-<body onload="onLoad()" class="d-flex flex-column h-100 text-white bg-dark">
-  <header>
-    <div class="w-100 cover-container">
-      <div class="logo">
-        <img class="logo-img" src="./resources/ui-logo-symbol-typo.svg" alt="logo">
+<body onload="onLoad()" class="d-flex flex-column h-100 text-white">
+  <div id="cover" class="cover-container">
+    <img class="logo" src="resources/ui-logo-symbol-typo.svg" alt="logo">
+    <div id="join-room">
+      <div class="room-info">
+        <span id="room-name" class="room-info__name" title="title"></span>
+        <div class="user-count">
+          <img class="user-count__icon" src="resources/icon-small-person.svg" alt="user-count">
+          <span id="user-count" class="user-count__text"></span>
+        </div>
+      </div>
+      <button class="enter-button" onclick="openInPeep()">
+        <img class="enter-button__icon" src="resources/icon-joinroom.svg" alt="join-room">
+        <span class="enter-button__text">Join Room</span>
+      </button>
+      <div class="download">
+        <span class="text">If you haven’t installed PEEP yet, </span>
+        <a class="text text--link" target="_blank"
+          href="https://peep-team.notion.site/PEEP-Alpha-Download-KR-dc7cb55a00b0488b96095cbf231245c2">Download Now</a>
       </div>
     </div>
-
-  </header>
-  <div class="cover-container d-flex w-100 h-100 mx-auto flex-column flex-1">
-    <main class="main-wrap">
-      <h1 class="main-text">
-        <b>Overlay</b><br />
-        anything you want <br />
-        <b>On the screen</b>
-      </h1>
-      <div class="sub-text-wrap">
-        <a href="https://peep-team.notion.site/PEEP-Alpha-Download-KR-dc7cb55a00b0488b96095cbf231245c2" class="sub-text">
-          Still haven't installed PEEP?
-        </a>
-        <p class="sub-text color-gray">
-          It takes less than a minute!
-        </p>
+    <div id="error">
+      <div class="text text-center">Invalid invite link</div>
+      <div class="mt-3">
+        <a class="text text--link" target="_blank" href="https://peep.lol">Go back to PEEP</a>
       </div>
-      <button class="btn btn-primary enter-btn" onclick="openInPeep()">
-        Enter room
-      </button>
-      <img class="main-img img-click-here" src="./resources/img-click-here.svg" alt="click-here">
-      <img class="main-img img-hello" src="./resources/img-hello.svg" alt="click-here">
-      <img class="main-img img-group" src="./resources/img-group.svg" alt="click-here">
-    </main>
+    </div>
   </div>
-
-
-
 </body>
 
 </html>
