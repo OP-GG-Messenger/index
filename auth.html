@@ -7,28 +7,28 @@
   <title>Join Peep</title>
 
   <script>
-    const API_ENDPOINT = 'https://13.125.190.27:90';
 
     function getRoomId() {
       return location.search.replace(/^\?/, '');
     }
     function confirmOpenInPeep() {
       const room_id = getRoomId();
-      if (confirm('Open in peep ' + room_id + '?')) {
+      if (confirm('Sign-in PEEP?')) {
         openInPeep()
       }
     }
 
     function openInPeep() {
       const query = location.search;
-      const link = 'peep://auth/' + query;
+      const protocol = location.search.match(/scheme=([^&]+)/);
+      const link = protocol[1] + '://auth/' + query;
       location.href = link;
     }
 
     async function onLoad() {
-      const room_id = getRoomId();
       document.getElementById("join-room").style.display = 'block';
       document.getElementById("cover").style.display = 'flex';
+      openInPeep();
     }
   </script>
 
