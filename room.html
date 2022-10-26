@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Join Peep</title>
+</head>
 
+<body>
   <script>
     function getRoomId() {
       return location.search.replace(/^\?/, '');
@@ -13,21 +15,13 @@
 
     function onLoad() {
       const room_id = getRoomId();
-      window.location.replace = 'https://peep.lol/r/' + room_id;
+      window.location.replace('https://peep.lol/r/' + room_id);
     }
     
     window.addEventListener("load", function(event) {
       onLoad();
     });
   </script>
-  <!-- Custom styles for this template -->
-  <link href="cover.css" rel="stylesheet">
-</head>
-
-<body onload="onLoad()" class="d-flex flex-column h-100 text-white">
-  <div id="cover" class="cover-container">
-    
-  </div>
 </body>
 
 </html>
